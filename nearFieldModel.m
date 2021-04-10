@@ -1,4 +1,4 @@
-function [num,den] = nearFieldModel(theta, rho_n, fs)
+function [num,den] = nearFieldModel(theta, rho_n, fs, a_0)
 %nearFieldModel - computes the IIR filter for the near field transfer
 %function as described in S. Spagnol, E. Tavazzi, and F. Avanzini,
 %"Distance rendering and perception of nearby virtual sound sources with a 
@@ -30,9 +30,9 @@ function [num,den] = nearFieldModel(theta, rho_n, fs)
 % 21. November 2018; Last revision: 21. November 2018
 
 % constants
-a_0 = 8.75 / 100;
 a = 8.75 / 100;
 if nargin < 3; fs = 48000; end
+if nargin < 4; a_0 = 8.75 / 100; end
 
 % Table 1
 data = [0  12.97  -9.69  -1.14 0.219  -4.39 2.123  -0.55    -0.06 0.457 -0.67 0.174 -1.75 0.699;
